@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BarisTutakli.Week4.IdentityAuthApi.InMemory
+namespace BarisTutakli.Week4.IdentityAuthApi.Common.InMemory
 {
     public class DataGenerator
     {
@@ -31,9 +31,9 @@ serviceProvider.GetRequiredService<DbContextOptions<InMemoryContext>>()))
                     return;   // Data was already seeded
                 }
                 context.Roles.AddRange(
-                 new Role { Name="Admin", Users=new List<int> {1} },
-                 new Role { Name = "RestrictedUser", Users = new List<int> { 2 } },
-                 new Role { Name = "Guest", Users = new List<int> { 3 } }
+                 new Role { Name="Admin", Users=new List<User> { new User { Name = "Bob", Email = "bob@hotmail.com", Password = "1234" } } },
+                 new Role { Name = "RestrictedUser", Users = new List<User> { new User { Name = "George", Email = "Georgeb@hotmail.com", Password = "123456" } } },
+                 new Role { Name = "Guest", Users = new List<User> { new User { Name = "Mary", Email = "Mary@hotmail.com", Password = "12345" } } }
                     );
 
                 context.SaveChanges();

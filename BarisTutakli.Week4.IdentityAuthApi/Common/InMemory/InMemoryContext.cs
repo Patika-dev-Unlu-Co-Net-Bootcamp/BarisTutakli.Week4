@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BarisTutakli.Week4.IdentityAuthApi.InMemory
+namespace BarisTutakli.Week4.IdentityAuthApi.Common.InMemory
 {
     public class InMemoryContext:DbContext
     {

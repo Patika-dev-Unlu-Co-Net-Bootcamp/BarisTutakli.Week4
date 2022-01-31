@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace BarisTutakli.Week4.IdentityAuthApi.Models
 {
-    public class Role
+    public class Role:BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+
         public string Name { get; set; }
-        public List<int> Users { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }
