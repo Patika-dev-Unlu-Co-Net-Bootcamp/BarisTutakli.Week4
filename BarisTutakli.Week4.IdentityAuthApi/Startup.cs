@@ -1,6 +1,8 @@
+using BarisTutakli.Week4.IdentityAuthApi.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +33,8 @@ namespace BarisTutakli.Week4.IdentityAuthApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BarisTutakli.Week4.IdentityAuthApi", Version = "v1" });
             });
+            services.AddDbContext<InMemoryContext>(options => options.UseInMemoryDatabase(databaseName: "InMemoryDB"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
