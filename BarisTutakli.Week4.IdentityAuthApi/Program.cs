@@ -1,4 +1,4 @@
-using BarisTutakli.Week4.IdentityAuthApi.InMemory;
+using BarisTutakli.Week4.IdentityAuthApi.Common.InMemory;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,10 +17,9 @@ namespace BarisTutakli.Week4.IdentityAuthApi
         {
             var host = CreateHostBuilder(args).Build();
 
-            //2. Find the service layer within our scope.
+
             using (var scope = host.Services.CreateScope())
             {
-                //3. Get the instance of BoardGamesDBContext in our services layer
                 var services = scope.ServiceProvider;
                 //4. Call the DataGenerator to create sample data
                 DataGenerator.Initialize(services);

@@ -1,6 +1,11 @@
-using BarisTutakli.Week4.IdentityAuthApi.InMemory;
+using BarisTutakli.Week4.IdentityAuthApi.Application.Abstract;
+using BarisTutakli.Week4.IdentityAuthApi.Application.Concrete;
+using BarisTutakli.Week4.IdentityAuthApi.Common.DataAccess;
+using BarisTutakli.Week4.IdentityAuthApi.Common.InMemory;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +39,10 @@ namespace BarisTutakli.Week4.IdentityAuthApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BarisTutakli.Week4.IdentityAuthApi", Version = "v1" });
             });
             services.AddDbContext<InMemoryContext>(options => options.UseInMemoryDatabase(databaseName: "InMemoryDB"));
+            services.AddScoped<InMemoryContext>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserDal, UserDal>();
+          
 
         }
 
@@ -48,6 +57,8 @@ namespace BarisTutakli.Week4.IdentityAuthApi
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

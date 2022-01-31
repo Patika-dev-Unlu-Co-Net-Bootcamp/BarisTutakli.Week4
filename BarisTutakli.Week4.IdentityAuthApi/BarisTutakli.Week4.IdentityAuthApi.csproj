@@ -11,10 +11,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Application\Handlers\" />
-    <Folder Include="Application\Queries\" />
-  </ItemGroup>
-
 </Project>

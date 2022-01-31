@@ -11,7 +11,7 @@ namespace BarisTutakli.Week4.IdentityAuthApi.Common.Repositories
 {
     public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        InMemoryContext _context;
+        private readonly InMemoryContext _context;
         private readonly DbSet<TEntity> _dbSet;
         public RepositoryBase(InMemoryContext context)
         {

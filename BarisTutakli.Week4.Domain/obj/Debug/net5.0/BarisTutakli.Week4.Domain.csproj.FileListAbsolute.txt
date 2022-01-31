@@ -1,0 +1,12 @@
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\bin\Debug\net5.0\BarisTutakli.Week4.Domain.deps.json
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\bin\Debug\net5.0\BarisTutakli.Week4.Domain.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\bin\Debug\net5.0\ref\BarisTutakli.Week4.Domain.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\bin\Debug\net5.0\BarisTutakli.Week4.Domain.pdb
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.csproj.AssemblyReference.cache
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.AssemblyInfoInputs.cache
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.AssemblyInfo.cs
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\ref\BarisTutakli.Week4.Domain.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.Domain\obj\Debug\net5.0\BarisTutakli.Week4.Domain.pdb
