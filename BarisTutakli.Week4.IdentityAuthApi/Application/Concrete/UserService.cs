@@ -18,14 +18,15 @@ namespace BarisTutakli.Week4.IdentityAuthApi.Application.Concrete
             _userDal = userDal;
         }
 
-        public void Create(LoginViewModel userLoginView)
+        public void Create(LoginUserViewModel userLoginView)
         {
 
             User user = new User { Email = userLoginView.Email, Password = userLoginView.Password };
+
             _userDal.Add(user);
         }
 
-        public Task<int> Delete(DeleteViewModel deleteViewModel)
+        public Task<int> Delete(DeleteUserViewModel deleteViewModel)
         {
             var data=_userDal.GetById(deleteViewModel.Id);
             var affectedRow = _userDal.Delete(data.Result);
@@ -49,7 +50,7 @@ namespace BarisTutakli.Week4.IdentityAuthApi.Application.Concrete
             return _userDal.GetById(id);
         }
 
-        public async Task<int> Update(int id,UpdateViewModel updateViewModel)
+        public async Task<int> Update(int id,UpdateUserViewModel updateViewModel)
         {
             var selectedUser = _userDal.GetById(id);
             selectedUser.Result.Name = updateViewModel.Name;

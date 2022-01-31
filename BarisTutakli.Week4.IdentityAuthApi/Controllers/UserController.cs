@@ -38,15 +38,16 @@ namespace BarisTutakli.Week4.IdentityAuthApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateUser([FromBody] LoginViewModel loginView)
+        public ActionResult CreateUser([FromBody] LoginUserViewModel loginView)
         {
             _userService.Create(loginView);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteUSerById(int id,[FromBody] DeleteViewModel deleteViewModel)
+        public ActionResult DeleteUSerById(int id)
         {
+            DeleteUserViewModel deleteViewModel = new DeleteUserViewModel();
             deleteViewModel.Id = id;
             var result = _userService.Delete(deleteViewModel);
             if (result.Result>0)
@@ -56,7 +57,7 @@ namespace BarisTutakli.Week4.IdentityAuthApi.Controllers
             return BadRequest();
         }
         [HttpPut("{id}")]
-        public ActionResult UpdateUser(int id, [FromBody] UpdateViewModel updateViewModel)
+        public ActionResult UpdateUser(int id, [FromBody] UpdateUserViewModel updateViewModel)
         {
          
             var result = _userService.Update(id, updateViewModel);

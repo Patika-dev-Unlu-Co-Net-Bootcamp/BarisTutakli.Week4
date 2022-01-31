@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BarisTutakli.Week4.IdentityAuthApi.Application.ViewModels
 {
-    public class LoginViewModel
+    public class LoginUserViewModel
     {
         [Required]
         [EmailAddress]

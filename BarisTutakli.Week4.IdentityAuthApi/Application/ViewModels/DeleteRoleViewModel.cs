@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BarisTutakli.Week4.IdentityAuthApi.Application.ViewModels
 {
-    public class DeleteViewModel
+    public class DeleteRoleViewModel
     {
         public int Id { get; set; }
     }
