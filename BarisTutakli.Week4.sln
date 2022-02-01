@@ -3,15 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.WebApi", "BarisTutakli.Week4.WebApi\BarisTutakli.Week4.WebApi.csproj", "{9A98F477-EA72-465A-A0E2-D00990255F59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.Application", "BarisTutakli.Week4.Application\BarisTutakli.Week4.Application.csproj", "{CE9FF842-380D-4641-8032-03C93EE47A91}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.Domain", "BarisTutakli.Week4.Domain\BarisTutakli.Week4.Domain.csproj", "{6E145896-DC82-4246-A982-14BF6BB0A593}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.Infrastructure", "BarisTutakli.Week4.Infrastructure\BarisTutakli.Week4.Infrastructure.csproj", "{35646D3D-87C5-4B2E-AD5F-C7B7851C12DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.IdentityAuthApi", "BarisTutakli.Week4.IdentityAuthApi\BarisTutakli.Week4.IdentityAuthApi.csproj", "{76283F26-D8F9-4B10-9A5E-0562185B8D54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisTutakli.Week4.WebApi", "BarisTutakli.Week4.WebApi\BarisTutakli.Week4.WebApi.csproj", "{2DF12324-36BB-4A55-BF97-8ACC3A80BD51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,26 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9A98F477-EA72-465A-A0E2-D00990255F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A98F477-EA72-465A-A0E2-D00990255F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A98F477-EA72-465A-A0E2-D00990255F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A98F477-EA72-465A-A0E2-D00990255F59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE9FF842-380D-4641-8032-03C93EE47A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE9FF842-380D-4641-8032-03C93EE47A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE9FF842-380D-4641-8032-03C93EE47A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE9FF842-380D-4641-8032-03C93EE47A91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E145896-DC82-4246-A982-14BF6BB0A593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E145896-DC82-4246-A982-14BF6BB0A593}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E145896-DC82-4246-A982-14BF6BB0A593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E145896-DC82-4246-A982-14BF6BB0A593}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35646D3D-87C5-4B2E-AD5F-C7B7851C12DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35646D3D-87C5-4B2E-AD5F-C7B7851C12DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35646D3D-87C5-4B2E-AD5F-C7B7851C12DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35646D3D-87C5-4B2E-AD5F-C7B7851C12DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76283F26-D8F9-4B10-9A5E-0562185B8D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76283F26-D8F9-4B10-9A5E-0562185B8D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76283F26-D8F9-4B10-9A5E-0562185B8D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76283F26-D8F9-4B10-9A5E-0562185B8D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF12324-36BB-4A55-BF97-8ACC3A80BD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF12324-36BB-4A55-BF97-8ACC3A80BD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF12324-36BB-4A55-BF97-8ACC3A80BD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF12324-36BB-4A55-BF97-8ACC3A80BD51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
