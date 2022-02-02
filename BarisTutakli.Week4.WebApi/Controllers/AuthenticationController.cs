@@ -1,4 +1,5 @@
 ﻿
+using BarisTutakli.Week4.WebApi.Business;
 using BarisTutakli.Week4.WebApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -19,14 +20,14 @@ namespace BarisTutakli.Week4.WebApi.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly UserManager<User> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
         public AuthenticationController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
-            this.userManager = userManager;
-            this.roleManager = roleManager;
+            _userManager = userManager;
+            _roleManager = roleManager;
             _configuration = configuration;
         }
 
@@ -34,37 +35,12 @@ namespace BarisTutakli.Week4.WebApi.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] UserLoginModel model)
         {
-            var user = await userManager.FindByNameAsync(model.Username);
-            if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var userRoles = await userManager.GetRolesAsync(user);
-
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
-
-                var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-
-                var token = new JwtSecurityToken(
-                    issuer: _configuration["JWT:ValidIssuer"],
-                    audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
-                    claims: authClaims,
-                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                    );
-
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
-                });
+                TokenGenerator generator = new TokenGenerator(_userManager,_configuration);
+                var token = await  generator.GenerateToken(user);
+                return Ok(token);
             }
             return Unauthorized();
         }
@@ -73,17 +49,13 @@ namespace BarisTutakli.Week4.WebApi.Controllers
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserModel model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
+            var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-           User user = new User()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
-            };
-            var result = await userManager.CreateAsync(user, model.Password);
+            UserService userService = new UserService(_userManager);
+
+            var result = await  userService.CreateUser(model);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
@@ -94,28 +66,26 @@ namespace BarisTutakli.Week4.WebApi.Controllers
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterUserModel model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
+            var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-            User user = new User()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
-            };
-            var result = await userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
+
+            UserService userService = new UserService(_userManager);
+
+            var result = userService.CreateAdmin(model);
+
+            if (!result.Result.Result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
-            if (!await roleManager.RoleExistsAsync(Roles.Admin))
-                await roleManager.CreateAsync(new IdentityRole(Roles.Admin));
-            if (!await roleManager.RoleExistsAsync(Roles.User))
-                await roleManager.CreateAsync(new IdentityRole(Roles.User));
+            if (!await _roleManager.RoleExistsAsync(Roles.Admin))
+                await _roleManager.CreateAsync(new IdentityRole(Roles.Admin));
+            if (!await _roleManager.RoleExistsAsync(Roles.User))
+                await _roleManager.CreateAsync(new IdentityRole(Roles.User));
 
-            if (await roleManager.RoleExistsAsync(Roles.Admin))
+            if (await _roleManager.RoleExistsAsync(Roles.Admin))
             {
-                await userManager.AddToRoleAsync(user, Roles.Admin);
+                await _userManager.AddToRoleAsync(result.Result.User, Roles.Admin);
             }
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });

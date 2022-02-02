@@ -1,5 +1,6 @@
+using BarisTutakli.Week4.WebApi.Business;
 using BarisTutakli.Week4.WebApi.Contexts;
-using BarisTutakli.Week4.WebApi.DataAccess.Common;
+using BarisTutakli.Week4.WebApi.DataAccess.ProductDal;
 using BarisTutakli.Week4.WebApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -40,7 +41,9 @@ namespace BarisTutakli.Week4.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BarisTutakli.Week4.WebApi", Version = "v1" });
             });
 
-            services.AddScoped<IRepository<Product>, BaseRepository<Product>>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
 
             services.AddDbContext<UnluDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 
@@ -84,6 +87,7 @@ namespace BarisTutakli.Week4.WebApi
             }
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

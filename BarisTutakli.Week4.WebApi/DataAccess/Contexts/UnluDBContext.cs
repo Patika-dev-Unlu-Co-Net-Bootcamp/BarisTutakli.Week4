@@ -18,6 +18,6 @@ namespace BarisTutakli.Week4.WebApi.Contexts
         {
             base.OnModelCreating(builder);
         }
-        public DbSet<Product> Products { get; set; }
+       DbSet<Product> Products { get; set; }
     }
 }

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nNwDVsogPNuJ0+T5WMHGImQW0m8CJMqB4Abuon1MK6ef+Us2PpZ7ebTCgzIdtY2rOUnrutfVGd4kALWdhMxlng==",
+  "dgSpecHash": "zJL7dzmlG3PwdfvCmUbxmII5YSbDy8tAMnjkSqQ44CA3zJpOIdhZN0TPpH85r/5qhUkE8K/wMZi/aqBEFBQjrw==",
   "success": true,
   "projectFilePath": "C:\\Users\\kbez1\\Documents\\kodlar\\Bootcamp\\BarisTutakli.Week4\\BarisTutakli.Week4.WebApi\\BarisTutakli.Week4.WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kbez1\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\kbez1\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
+    "C:\\Users\\kbez1\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\kbez1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kbez1\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\kbez1\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
