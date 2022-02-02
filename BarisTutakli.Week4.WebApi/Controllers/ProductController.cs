@@ -91,24 +91,11 @@ namespace BarisTutakli.Week4.WebApi.Controllers
             {
                 return Ok(new Response {  Status="Success"});
             }
-            return StatusCode(StatusCodes.Status500InternalServerError,new Response { Status="Error"});
+            return StatusCode(StatusCodes.Status400BadRequest,new Response { Status="Error"});
 
            
         }
 
-        ///// <summary>
-        ///// Update the category of a product
-        ///// </summary>
-        ///// <param name="id">The id<see cref="int"/>.</param>
-        ///// <param name="updateProductCategoryViewModel">The updateProductCategoryViewModel<see cref="UpdateProductCategoryViewModel"/>.</param>
-        ///// <returns>The <see cref="IActionResult"/>.</returns>
-        //[HttpPatch("{id}")]
-        //public IActionResult UpdateProductCategory(int id, [FromBody] UpdateProductCategoryViewModel updateProductCategoryViewModel)
-        //{
-
-
-        //    return Ok();
-        //}
 
         /// <summary>
         /// Delete a specific product 
@@ -126,5 +113,22 @@ namespace BarisTutakli.Week4.WebApi.Controllers
             }
             return BadRequest();//200
         }
+
+
+
+
+        ///// <summary>
+        ///// Update the category of a product
+        ///// </summary>
+        ///// <param name="id">The id<see cref="int"/>.</param>
+        ///// <param name="updateProductCategoryViewModel">The updateProductCategoryViewModel<see cref="UpdateProductCategoryViewModel"/>.</param>
+        ///// <returns>The <see cref="IActionResult"/>.</returns>
+        //[HttpPatch("{id}")]
+        //public IActionResult UpdateProductCategory(int id, [FromBody] UpdateProductCategoryViewModel updateProductCategoryViewModel)
+        //{
+
+
+        //    return Ok();
+        //}
     }
 }

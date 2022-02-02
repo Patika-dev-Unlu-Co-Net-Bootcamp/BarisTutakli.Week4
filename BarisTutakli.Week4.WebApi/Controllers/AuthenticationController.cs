@@ -1,6 +1,7 @@
 ﻿
 using BarisTutakli.Week4.WebApi.Business;
 using BarisTutakli.Week4.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -62,6 +63,7 @@ namespace BarisTutakli.Week4.WebApi.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        [Authorize(Roles = Roles.Admin)]
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterUserModel model)

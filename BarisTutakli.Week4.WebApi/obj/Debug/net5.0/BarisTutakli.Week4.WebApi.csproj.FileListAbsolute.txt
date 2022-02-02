@@ -64,3 +64,7 @@ C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.W
 C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\obj\Debug\net5.0\ref\BarisTutakli.Week4.WebApi.dll
 C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\obj\Debug\net5.0\BarisTutakli.Week4.WebApi.pdb
 C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\obj\Debug\net5.0\BarisTutakli.Week4.WebApi.genruntimeconfig.cache
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\kbez1\Documents\kodlar\Bootcamp\BarisTutakli.Week4\BarisTutakli.Week4.WebApi\bin\Debug\net5.0\Newtonsoft.Json.dll

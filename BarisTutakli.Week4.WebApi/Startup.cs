@@ -1,7 +1,10 @@
 using BarisTutakli.Week4.WebApi.Business;
 using BarisTutakli.Week4.WebApi.Contexts;
 using BarisTutakli.Week4.WebApi.DataAccess.ProductDal;
+using BarisTutakli.Week4.WebApi.Middlewares;
 using BarisTutakli.Week4.WebApi.Models;
+using BarisTutakli.Week4.WebApi.Services;
+using BarisTutakli.Week4.WebApi.Services.Abstract;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +47,7 @@ namespace BarisTutakli.Week4.WebApi
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
 
+            services.AddSingleton<ILoggerService, DBLogger>();
 
             services.AddDbContext<UnluDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 
@@ -90,6 +94,8 @@ namespace BarisTutakli.Week4.WebApi
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseCustomExceptionMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
