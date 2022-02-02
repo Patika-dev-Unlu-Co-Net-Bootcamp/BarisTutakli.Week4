@@ -1,22 +1,39 @@
-## Week 4
+# 4. hafta
 
-### IdentityAuthApi
-This api is created for auhthentication and authorization. If a user logins and get authenticated then this user can access **WebApi controllers**. 
+Restful api oluşturun
+- Api tekrardan sıfırdan oluşturuldu
+- Kullanıcı işlemleri için Asp.NET Core Identity altyapısını kullanıldı
+- Api de yetkilendirme işlemleri için JWT kullanıldı
+- Bir tane local result filter oluşturuldu ve her ürün yükleme response'un da header a verinin oluşturulma/getirilme tarihi saati yazıldı
 
-##### Steps
-* Created **Role** and **User** models.
-* Created an in memory database.
-* Not yet created a common repository which is genereic repository to avoid code repetitions for CRUD operations.
-* Not yet User and role database operations.
-* Not yet Done user and role controllers.
+# bonus
+- rol bazlı yapı tanımlayın
+<hr>
 
-### Clean architecture
-I tried to apply clean architecture to the other parts of this project. For this reason, i created following layers:
-* Domain
-    1. Models and Interfaces goes here
-* Application
-    1. All business operations 
-* Insfrastructure
-    1. Contexts and thirt party needs
-* WebApi
-    1. Restfullapi
+* Kullanıcı kaydı ve giriş işlemşleri için **AuthenticateController** oluşturuldu. 
+* Token oluşturmak için **TokenGenerator** sınıfı oluşturuldu.
+* Kullanıcı yekisine göre rolü göz önüne alınarak metotlara erişimi kısıtlandı.
+* Yekisiz kullanıcılara ise sadece kısıtlı ürünü görebilme olanağı tanındı.
+* DTO lar kullanılarak Mmodellerimize erişimi sınırlayarak istediğimiz şekilde veri alma gönderme işlemleri yapıldı.
+
+
+### Filters
+````c#
+public class CreateProductActionFilter :IActionFilter
+{
+    private DateTime _requestTime { get; set; }
+    private DateTime _responseTime { get; set; }
+
+    public void OnActionExecuted(ActionExecutedContext context)
+    {
+        _responseTime = DateTime.Now;
+        context.HttpContext.Response.Headers.Add("ProcessTime", $"Request time: {_requestTime} Response time: {_responseTime}");
+    }
+
+    public  void  OnActionExecuting(ActionExecutingContext context)
+    {
+        _requestTime = DateTime.Now;
+    }
+
+}
+```

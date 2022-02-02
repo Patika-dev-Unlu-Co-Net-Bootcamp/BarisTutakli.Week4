@@ -19,13 +19,13 @@ namespace BarisTutakli.Week4.WebApi.Controllers
 {
     [Route("api/[controller]s")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticateController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
-        public AuthenticationController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthenticateController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
