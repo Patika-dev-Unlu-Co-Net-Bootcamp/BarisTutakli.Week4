@@ -1,6 +1,7 @@
 ﻿using BarisTutakli.Week4.WebApi.Business;
 using BarisTutakli.Week4.WebApi.Business.ViewModels;
 using BarisTutakli.Week4.WebApi.Models;
+using BarisTutakli.Week4.WebApi.Services.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,7 @@ namespace BarisTutakli.Week4.WebApi.Controllers
 
 
         // Sadece admin yetkisine sahip olan üye ürün ekleyebilir
+        [TypeFilter(typeof(CreateProductActionFilter))]
         [Authorize(Roles = Roles.Admin)]
         [HttpPost]
         public IActionResult Add(ProductCreateViewModel vm)
