@@ -54,7 +54,6 @@ namespace BarisTutakli.Week4.WebApi.Controllers
         public async Task<IActionResult> Add(ProductCreateViewModel vm)
         {
             var result = await _productService.Add(vm);
-
             return result.Data < 1 ? BadRequest(result) : Ok(result);
 
         }
@@ -91,7 +90,7 @@ namespace BarisTutakli.Week4.WebApi.Controllers
             var result = _productService.Update(id, updateProductModel);
 
             return result.Result.Data < 1 ? StatusCode(StatusCodes.Status400BadRequest, result) :
-                Ok( result);
+                Ok(result);
         }
 
 
@@ -106,7 +105,7 @@ namespace BarisTutakli.Week4.WebApi.Controllers
         {
             var result = await _productService.Delete(new ProductDetailQuery { Id = id });
             return result.Data < 1 ? StatusCode(StatusCodes.Status400BadRequest, result) :
-             Ok( result);
+             Ok(result);
 
         }
 
